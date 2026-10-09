@@ -1,0 +1,22 @@
+.filtro {
+	display:flex;
+	flex-direction:row;
+	background-color:#FFFFFF;
+	height:70px;
+	justify-content:flex-start;
+	align-items:center;
+	gap:10px;
+}
+.text-type {
+	font-family:arial;
+	letter-spacing:-1px;
+	font-weight:700;
+	font-size:24px;
+	margin-left:40px;
+}
+.tipo {
+	border:4px solid #000000;
+	border-radius:40px;
+	padding:10px;
+	min-width:100px;
+}

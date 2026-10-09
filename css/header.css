@@ -1,5 +1,5 @@
 body {
-
+	margin:0px;
 	background-color:#ff0000;
 }
 header {
@@ -51,8 +51,8 @@ header {
 	transform:scaleX(0.8);
 	transform-origin:left;
 	color:white;
-	font-family:arial, sans-serif;
-i	font-size:36px;
+	font-family:arial, sans-serif;	
+	font-size:36px;
 	letter-spacing:-4px;
 }
 .campo-busca {
