@@ -9,6 +9,8 @@
 	flex-wrap:nowrap;
 	overflow-x:auto;
 	cursor:grab;
+	scrollbar-width:none;
+	-ms-overflow-style:none;
 }
 .filtro::-webkit-scrollbar {
 	display:none;
