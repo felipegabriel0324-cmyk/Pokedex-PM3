@@ -52,8 +52,11 @@ Pokedex-PM3
 ##▶️ Como executar 
 
 Clone o repositório -> git clone httpsgithub.comfelipegabriel0324-cmykPokedex-PM3.git
+
  Abra a pasta Pokedex-PM3.
+ 
 Abra o arquivo index.html em um navegador. 
+
 A versão atual não exige instalação de dependências. 
 
 ##🎨 Material visual 
@@ -72,6 +75,7 @@ Matheus | |
 ##🧑‍🏫 Mentoria 
 
 Mentor Thierre Tries
+
 GitHub ou LinkedIn https://github.com/SRhartty 
 
 A mentoria acompanha o processo de aprendizagem da equipe, apoiando a organização das atividades, esclarecendo dúvidas técnicas e orientando boas práticas de desenvolvimento. 
@@ -81,14 +85,21 @@ Os participantes são responsáveis pela construção do projeto, com incentivo 
 ##🎓 Contexto acadêmico
 
 Instituição: Uniamerica
+
 Curso: Analise e Desenvolvimento de Sistemas
+
 Atividade: Criar um site inspirado na Pokedex
+
 Turma: 2º ADS FORTE 2026
+
 Periodo Letivo: Semestre
 
 ##🤝 Colaboração 
 
-Cada integrante deve registrar suas alterações com mensagens de commit claras e alinhar as atividades com a equipe. 
+Cada integrante deve registrar suas alterações com mensagens de commit claras e alinhar as atividades com a equipe.
+
 As contribuições devem favorecer tanto a evolução da aplicação quanto o aprendizado coletivo. 
+
  Projeto desenvolvido para fins educacionais. 
+ 
 Pokemons e seus elementos associados pertencem aos respectivos titulares.
