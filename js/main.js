@@ -1,67 +1,70 @@
-let minimo = 1;
+let minimo = 0;
 let maximo = 20;
-const requisicoes = [];
+let minimo_buscar = 1;
+let maximo_buscar = 20;
 const pokedex_container = document.querySelector("#pokedex-container");
+const container_selecao = document.getElementById("selecao_script");
+
 function buscar() {
-	for(;minimo <= maximo;minimo++) {
+	const requisicoes = [];
+	for(;minimo_buscar <= maximo_buscar;minimo_buscar++) {
 		requisicoes.push(
-			fetch(`https://pokeapi.co/api/v2/pokemon/${minimo}`)
+			fetch(`https://pokeapi.co/api/v2/pokemon/${minimo_buscar}`)
 			.then(response => response.json())
 		);
-		minimo = minimo - 20;
 	}
+	return requisicoes;
 }
-function atualizar() {
+
+function atualizar(requisicoes) {
 	Promise.all(requisicoes).then(pokemon => {
-	for(;minimo <= maximo;minimo++) {
-			const pokTypes = [];
-			const types = [];
+		for(;minimo < maximo;minimo++) {
+			const type = [];
+
 			let div = document.createElement("div");
-			for(let i = 0;i < pokemon.types.length; i++) {
-				pokTypes[i] = pokemon.types[i].type.name;
-			}
-			console.log(`confirmado:${pokemon.name} ${pokemon.id}`);
-			let nome = document.createElement("h2");
 			let id = document.createElement("p");
-			let buttonIcone = document.createElement("button");
-			let icone = document.createElement("img");
+			let iconButton = document.createElement("button");
+			let icon = document.createElement("img");
 			let img = document.createElement("img");
-			let button = document.createElement("button");
-			for(let i = 0;i < pokemon.types.length;i++) {
-				types[i] = document.createElement("span");
+			let name = document.createElement("h2");
+			for(let i = 0;i < pokemon[minimo].types.length;i++) {
+				type[i] = document.createElement("span");
 			}
-			let type = document.createElement("p");
-			button.textContent = "+ ADD TO DEX";
-			nome.textContent = pokemon.name;
-			id.textContent = pokemon.id;
-			icone.src = "images/estrela.svg";
-			img.src = pokemon.sprites.front_default;
-			img.alt = pokemon.name;
-			for(let i = 0;i < pokemon.types.length;i++) {
-				types[i].textContent = pokTypes[i];
+			let ATDbutton = document.createElement("button");
+
+			id.textContent = pokemon[minimo].id;
+			icon.src = "images/estrela.svg";
+			img.src = pokemon[minimo].sprites.front_default;
+			img.alt = pokemon[minimo].name;
+			name.textContent = pokemon[minimo].name;
+			for(let i = 0;i < pokemon[minimo].types.length;i++) {
+				type[i].textContent = pokemon[minimo].types[i].type.name;
 			}
+			ATDbutton.textContent = "+ ADD TO DEX";
+
 			pokedex_container.appendChild(div);
-			buttonIcone.appendChild(icone);
 			div.appendChild(id);
-			div.appendChild(buttonIcone);
+			iconButton.appendChild(icon);
+			div.appendChild(iconButton);
 			div.appendChild(img);
-			div.appendChild(nome);
-			for(let i = 0;i < pokemon.types.length;i++) { //ainda falta o resto da div, botao addtodex e icone de estrela
-				div.appendChild(types[i]);
+			div.appendChild(name);
+			for(let i = 0;i < pokemon[minimo].types.length;i++) {
+				div.appendChild(type[i]);
 			}
-			div.appendChild(button);
+			div.appendChild(ATDbutton);
 		}
 	});
 }
-atualizar();
-const container_selecao = document.getElementById('selecao_script');
-container_selecao.addEventListener('click', function(evento) {
-	const numero = evento.target.getAttribute('data-numero');
-	if(!numero) return;
-	let multiplicador = 20;
-	maximo = multiplicador * numero;
-	minimo = maximo - 20;
+
+container_selecao.addEventListener("click", function(evento) {
+	const multiplicador = evento.target.getAttribute("data-numero");
+	if(!multiplicador) return;
+	let base = 20;
+	maximo_buscar = base * multiplicador;
+	minimo_buscar = maximo_buscar - 19;
 	pokedex_container.replaceChildren();
-	buscar();
-	atualizar();
+	minimo = 0;
+	atualizar(buscar());
 });
+
+atualizar(buscar());
