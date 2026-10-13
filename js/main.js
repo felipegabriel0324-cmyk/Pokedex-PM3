@@ -22,15 +22,23 @@ function atualizar(requisicoes) {
 			const type = [];
 
 			let div = document.createElement("div");
+			div.classList.add("pokemon-card");
 			let id = document.createElement("p");
+			id.classList.add("pokemon-id");
 			let iconButton = document.createElement("button");
+			iconButton.classList.add("icon-button");
 			let icon = document.createElement("img");
+			icon.classList.add("icon");
 			let img = document.createElement("img");
+			img.classList.add("pokemon-img");
 			let name = document.createElement("h2");
+			name.classList.add("pokemon-name");
 			for(let i = 0;i < pokemon[minimo].types.length;i++) {
 				type[i] = document.createElement("span");
+				type[i].classList.add("pokemon-type");
 			}
 			let ATDbutton = document.createElement("button");
+			ATDbutton.classList.add("ATD-button");
 
 			id.textContent = pokemon[minimo].id;
 			icon.src = "images/estrela.svg";
