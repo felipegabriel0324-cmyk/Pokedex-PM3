@@ -21,8 +21,10 @@ function atualizar(requisicoes) {
 		for(;minimo < maximo;minimo++) {
 			const type = [];
 
-			let div = document.createElement("div");
-			div.classList.add("pokemon-card");
+			let div1 = document.createElement("div");
+			div1.classList.add("pokemon-card");
+			let div2 = document.createElement("div");
+			div2.classList.add("id-estrela");
 			let id = document.createElement("p");
 			id.classList.add("pokemon-id");
 			let iconButton = document.createElement("button");
@@ -50,16 +52,17 @@ function atualizar(requisicoes) {
 			}
 			ATDbutton.textContent = "+ ADD TO DEX";
 
-			pokedex_container.appendChild(div);
-			div.appendChild(id);
+			pokedex_container.appendChild(div1);
+			div1.appendChild(div2);
+			div2.appendChild(id);
 			iconButton.appendChild(icon);
-			div.appendChild(iconButton);
-			div.appendChild(img);
-			div.appendChild(name);
+			div2.appendChild(iconButton);
+			div1.appendChild(img);
+			div1.appendChild(name);
 			for(let i = 0;i < pokemon[minimo].types.length;i++) {
-				div.appendChild(type[i]);
+				div1.appendChild(type[i]);
 			}
-			div.appendChild(ATDbutton);
+			div1.appendChild(ATDbutton);
 		}
 	});
 }
