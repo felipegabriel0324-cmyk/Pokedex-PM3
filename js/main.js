@@ -38,11 +38,14 @@ function atualizar(requisicoes) {
 			for(let i = 0;i < pokemon[minimo].types.length;i++) {
 				type[i] = document.createElement("span");
 				type[i].classList.add("pokemon-type");
+				type[i].classList.add(pokemon[minimo].types[i].type.name);
 			}
+			let div3 = document.createElement("div");
+			div3.classList.add("types-style");
 			let ATDbutton = document.createElement("button");
 			ATDbutton.classList.add("ATD-button");
 
-			id.textContent = pokemon[minimo].id;
+			id.textContent = `#${pokemon[minimo].id}`;
 			icon.src = "images/estrela.svg";
 			img.src = pokemon[minimo].sprites.front_default;
 			img.alt = pokemon[minimo].name;
@@ -60,9 +63,21 @@ function atualizar(requisicoes) {
 			div1.appendChild(img);
 			div1.appendChild(name);
 			for(let i = 0;i < pokemon[minimo].types.length;i++) {
-				div1.appendChild(type[i]);
+				div3.appendChild(type[i]);
 			}
+			div1.appendChild(div3);
 			div1.appendChild(ATDbutton);
+			let estado = 1;
+			iconButton.addEventListener("click", function() {
+				if(estado) {
+					icon.src = "images/estrelaAtivado.svg";
+					estado = 0;
+				}else if(!estado) {
+					icon.src = "images/estrela.svg";
+					estado = 1;
+				}
+			});
+
 		}
 	});
 }
@@ -77,5 +92,6 @@ container_selecao.addEventListener("click", function(evento) {
 	minimo = 0;
 	atualizar(buscar());
 });
+
 
 atualizar(buscar());
