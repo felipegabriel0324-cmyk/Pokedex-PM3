@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="20mm"
+   height="20mm"
+   viewBox="0 0 20 20"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname=".svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="3.6204265"
+     inkscape:cx="37.150319"
+     inkscape:cy="44.74611"
+     inkscape:window-width="1366"
+     inkscape:window-height="717"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       sodipodi:type="star"
+       style="fill:#808080;stroke-width:0.264999"
+       id="path1"
+       inkscape:flatsided="false"
+       sodipodi:sides="5"
+       sodipodi:cx="7.6734743"
+       sodipodi:cy="6.8695865"
+       sodipodi:r1="10.026716"
+       sodipodi:r2="5.0133581"
+       sodipodi:arg1="0.93021066"
+       sodipodi:arg2="1.5585292"
+       inkscape:rounded="0.1"
+       inkscape:randomized="0"
+       d="M 13.666093,14.908465 C 13.132258,15.306414 8.4007618,11.8744 7.7349723,11.882567 7.0691827,11.890735 2.4233036,15.437789 1.8798677,15.053055 1.3364317,14.668322 3.1383583,9.1078503 2.9248501,8.4771708 2.7113418,7.8464913 -2.0977622,4.5240975 -1.8997899,3.88837 -1.7018176,3.2526426 4.143331,3.2480964 4.6771652,2.8501473 5.2109993,2.4521982 6.8846888,-3.1482076 7.5504783,-3.1563754 c 0.6657896,-0.00817 2.4763637,5.5494941 3.0197997,5.9342275 0.543436,0.3847335 6.386937,0.2458861 6.600445,0.8765656 0.213508,0.6306795 -4.512644,4.0700496 -4.710617,4.705777 -0.197972,0.6357275 1.739821,6.1503213 1.205987,6.5482703 z"
+       inkscape:transform-center-x="0.038475722"
+       inkscape:transform-center-y="-0.98295396"
+       transform="matrix(1.0268067,0,0,1.0841453,2.1704271,3.554227)" />
+  </g>
+</svg>
