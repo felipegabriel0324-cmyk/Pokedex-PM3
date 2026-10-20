@@ -67,17 +67,26 @@ function atualizar(requisicoes) {
 			}
 			div1.appendChild(div3);
 			div1.appendChild(ATDbutton);
-			let estado = 1;
+			let estrela = 1;
 			iconButton.addEventListener("click", function() {
-				if(estado) {
+				if(estrela) {
 					icon.src = "images/estrelaAtivado.svg";
-					estado = 0;
-				}else if(!estado) {
+					estrela = 0;
+				}else{
 					icon.src = "images/estrela.svg";
-					estado = 1;
+					estrela = 1;
 				}
 			});
-
+			let ATD = 1;
+			ATDbutton.addEventListener("click", function() {
+				if(ATD) {
+					ATDbutton.textContent = "ADICIONADO";
+					ATD = 0;
+				}else{
+					ATDbutton.textContent = "+ ADD TO DEX";
+					ATD = 1;
+				}
+			});
 		}
 	});
 }
