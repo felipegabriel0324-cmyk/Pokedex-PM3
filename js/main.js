@@ -67,25 +67,41 @@ function atualizar(requisicoes) {
 			}
 			div1.appendChild(div3);
 			div1.appendChild(ATDbutton);
-			let estrela = 1;
+			let chavePok = `pokemon_${pokemon[minimo].id}`;
+			let salvo = localStorage.getItem(chavePok);
+			let estadoFavoritado = {fav:0, ATD:0};
+			if(salvo) {
+				estadoFavoritado = JSON.parse(salvo);
+			}
+			if(estadoFavoritado.fav == 1) {
+				icon.src = "images/estrelaAtivado.svg";
+			}else{
+				icon.src = "images/estrela.svg";
+			}
+			if(estadoFavoritado.ATD == 1) {
+				ATDbutton.textContent = "ADICIONADO";
+			}else{
+				ATDbutton.textContent = "+ ADD TO DEX";
+			}
 			iconButton.addEventListener("click", function() {
-				if(estrela) {
-					icon.src = "images/estrelaAtivado.svg";
-					estrela = 0;
-				}else{
+				if(estadoFavoritado.fav) {
 					icon.src = "images/estrela.svg";
-					estrela = 1;
-				}
-			});
-			let ATD = 1;
-			ATDbutton.addEventListener("click", function() {
-				if(ATD) {
-					ATDbutton.textContent = "ADICIONADO";
-					ATD = 0;
+					estadoFavoritado.fav = 0;
 				}else{
-					ATDbutton.textContent = "+ ADD TO DEX";
-					ATD = 1;
+					icon.src = "images/estrelaAtivado.svg";
+					estadoFavoritado.fav = 1;
 				}
+				localStorage.setItem(chavePok, JSON.stringify(estadoFavoritado));
+			});
+			ATDbutton.addEventListener("click", function() {
+				if(estadoFavoritado.ATD) {
+					ATDbutton.textContent = "+ ADD TO DEX";
+					estadoFavoritado.ATD = 0;
+				}else{
+					ATDbutton.textContent = "ADICIONADO";
+					estadoFavoritado.ATD = 1;
+				}
+				localStorage.setItem(chavePok, JSON.stringify(estadoFavoritado));
 			});
 		}
 	});
