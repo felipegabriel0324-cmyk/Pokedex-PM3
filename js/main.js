@@ -7,14 +7,6 @@ const pokedex_container = document.querySelector("#pokedex-container");
 const container_selecao = document.getElementById("selecao_script");
 const irParaDex = document.getElementById("irParaDex");
 const reset = document.getElementById("reset");
-function limparArmazem() {
-	localStorage.clear(); //debug
-}
-//if(localStorage.getItem(chavePok)) {
-//	for(let i = 0;localStorage.length;i++) {
-//		pokemons_ATD.push(localStorage.getItem(chavePok));
-//	}
-//}
 
 console.log(pokemons_ATD);
 function buscar() {
@@ -99,14 +91,12 @@ function atualizar(requisicoes) {
 			}
 			div1.appendChild(div3);
 			div1.appendChild(ATDbutton);
+
 			let chavePok = `pokemon_${pokemon[x].id}`;
 			let salvo = localStorage.getItem(chavePok);
-			let estadoFavoritado = {fav:0, ATD:0};
+			let estadoFavoritado = {fav:0, ATD:0, id:pokemon[x].id};
 			if(salvo) {
 				estadoFavoritado = JSON.parse(salvo);
-				if(estadoFavoritado.ATD == 1) {
-					pokemons_ATD.push(pokemon[x].id);
-				}
 			}
 			if(estadoFavoritado.fav == 1) {
 				icon.src = "images/estrelaAtivado.svg";
@@ -118,6 +108,7 @@ function atualizar(requisicoes) {
 			}else{
 				ATDbutton.textContent = "+ ADD TO DEX";
 			}
+
 			iconButton.addEventListener("click", function() {
 				if(estadoFavoritado.fav) {
 					icon.src = "images/estrela.svg";
@@ -136,6 +127,7 @@ function atualizar(requisicoes) {
 					console.log(`vetorPF${i}: ${pokemons_favoritos[i]}`);
 				}
 			});
+
 			ATDbutton.addEventListener("click", function() {
 				if(estadoFavoritado.ATD) {
 					ATDbutton.textContent = "+ ADD TO DEX";
@@ -149,7 +141,7 @@ function atualizar(requisicoes) {
 					estadoFavoritado.ATD = 1;
 					pokemons_ATD.push(pokemonAtual.id);
 				}
-				localStorage.setItem(chavePok, JSON.stringify(estadoFavoritado));	
+				localStorage.setItem(chavePok, JSON.stringify(estadoFavoritado));
 				for(let i = 0;i < pokemons_ATD.length;i++) {
 					console.log(`vetorPATD${i}: ${pokemons_ATD[i]}`);
 				}
@@ -157,15 +149,21 @@ function atualizar(requisicoes) {
 		}
 	});
 }
-//if(localStorage.getItem(chavePok)) {
-//	for(let i = 0;localStorage.length;i++) {
-//		pokemons_ATD.push(localStorage.getItem(chavePok));
-//	}
-//}
+
+function resgatarPokemons() {
+	for(let i = 0;i < localStorage.length;i++) {
+		let chave = localStorage.key(i);
+		let objt = JSON.parse(localStorage.getItem(chave));
+		if(objt.ATD) pokemons_ATD.push(objt.id);
+		if(objt.fav) pokemons_favoritos.push(objt.fav);
+		console.log(`chave:${chave} fav:${objt.fav} ATD:${objt.ATD} id:${objt.id}`);
+	}
+}
+
 function gerenCards(evento) {
 	if(estado_ATD == 1) return;
 	let multiplicador = 1;
-	if(evento) multiplicador = evento.target.getAttribute("data-numero");
+	if(evento) multiplicador = evento.target.getAttribute("data-numero"); //jeito antigo de pegar a data do html, nao sabia
 	if(!multiplicador) return;
 	let base = 20;
 	maximo_buscar = base * multiplicador;
@@ -174,7 +172,9 @@ function gerenCards(evento) {
 	atualizar(buscar());
 	console.log(`multiplicador:${multiplicador}`);
 }
+
 container_selecao.addEventListener("click", gerenCards);
+
 irParaDex.addEventListener("click", function() {
 	if(estado_ATD == 0) {
 		estado_ATD = 1;
@@ -185,4 +185,6 @@ irParaDex.addEventListener("click", function() {
 		gerenCards();
 	}
 });
+
+resgatarPokemons();
 atualizar(buscar());
