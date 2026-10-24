@@ -9,7 +9,7 @@ header {
 	background-color:#ff0000;
 }
 .logo {
-	width:150px;
+	width:100px;
 	height:auto;
 }
 .titulo {
@@ -24,26 +24,27 @@ header {
 .bolas {
 	display:flex;
 	gap:8px;
+	margin-left:4px;
 }
 .bola-vermelha {
-	width:30px;
-	height:30px;
+	width:20px;
+	height:20px;
 	background-color:#800000;
-	border:4px solid #000000;
+	border:3px solid #000000;
 	border-radius:50%;
 }
 .bola-amarela {
-	width:30px;
-	height:30px;
+	width:20px;
+	height:20px;
 	background-color:#FFFF00;
-	border:4px solid #000000;
+	border:3px solid #000000;
 	border-radius:50%;
 }
 .bola-verde {
-	width:30px;
-	height:30px;
+	width:20px;
+	height:20px;
 	background-color:#00FF00;
-	border:4px solid #000000;
+	border:3px solid #000000;
 	border-radius:50%;
 }
 .titulo-h1 {
@@ -52,18 +53,19 @@ header {
 	transform-origin:left;
 	color:white;
 	font-family:arial, sans-serif;	
-	font-size:36px;
+	font-size:28px;
 	letter-spacing:-4px;
+	height:20px;
 }
 .campo-busca {
-	width:550px;
-	height:60px;
+	width:480px;
+	height:55px;
 	padding:12px 20px;
 	background-color:rgba(50, 0, 0, 0.5);
 	border:none;
 	border-radius:40px;
 	text-align:center;
-	font-size:24px;
+	font-size:18px;
 }
 .campo-busca::placeholder {
 	color:#AC9D93;
@@ -73,5 +75,10 @@ header {
 	color:white;
 	font-family:arial;
 	font-weight:400;
-	margin-right:180px;
+	font-size:24px;
+	margin-right:80px;
+	border:none;
+	background:none;
 }
+.minhapokedex:hover {
+	cursor:pointer;

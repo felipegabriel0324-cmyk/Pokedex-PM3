@@ -6,8 +6,9 @@
 		<link rel="stylesheet" href="css/header.css">
 		<link rel="stylesheet" href="css/filtro.css">
 		<link rel="stylesheet" href="css/cards.css">
-		<script src="js/tipo.js" defer></script>
+		<script src="js/tipoStyle.js" defer></script>
 		<script src="js/main.js" defer></script>
+		<script src="js/tipoScript.js" defer></script>
 	</head>
 	<body>
 		<header>
@@ -24,30 +25,31 @@
 			</div>
 				<input class="campo-busca" id="campo-busca" type="search" placeholder="pesquisa...">
 			<div>
-				<h1 class="minhapokedex">MINHA POKEDEX</h1>
+				<button id="irParaDex" class="minhapokedex">MINHA POKEDEX</button>
 			</div>
 		</header>
-		<div class="filtro">
+		<div id="tipo_script" class="filtro">
 			<a class="text-type">TYPE:</a>
 			<button class="tipo">ALL</button>
-			<button class="tipo">NORMAL</button>
-			<button class="tipo">FIRE</button>
-			<button class="tipo">WATER</button>
-			<button class="tipo">GRASS</button>
-			<button class="tipo">FLYING</button>
-			<button class="tipo">FIGHTING</button>
-			<button class="tipo">POISON</button>
-			<button class="tipo">ELECTRIC</button>
-			<button class="tipo">GROUND</button>
-			<button class="tipo">ROCK</button>
-			<button class="tipo">PSYCHIC</button>
-			<button class="tipo">ICE</button>
-			<button class="tipo">BUG</button>
-			<button class="tipo">GHOST</button>
-			<button class="tipo">STEEL</button>
-			<button class="tipo">DRAGON</button>
-			<button class="tipo">DARK</button>
-			<button class="tipo">FAIRY</button>
+			<button class="tipo" data-tipo="fav">FAVORITES</button>
+			<button class="tipo" data-tipo="nor">NORMAL</button>
+			<button class="tipo" data-tipo="fir">FIRE</button>
+			<button class="tipo" data-tipo="wat">WATER</button>
+			<button class="tipo" data-tipo="gra">GRASS</button>
+			<button class="tipo" data-tipo="fly">FLYING</button>
+			<button class="tipo" data-tipo="fig">FIGHTING</button>
+			<button class="tipo" data-tipo="poi">POISON</button>
+			<button class="tipo" data-tipo="ele">ELECTRIC</button>
+			<button class="tipo" data-tipo="gro">GROUND</button>
+			<button class="tipo" data-tipo="roc">ROCK</button>
+			<button class="tipo" data-tipo="psy">PSYCHIC</button>
+			<button class="tipo" data-tipo="ice">ICE</button>
+			<button class="tipo" data-tipo="bug">BUG</button>
+			<button class="tipo" data-tipo="gho">GHOST</button>
+			<button class="tipo" data-tipo="ste">STEEL</button>
+			<button class="tipo" data-tipo="dra">DRAGON</button>
+			<button class="tipo" data-tipo="dar">DARK</button>
+			<button class="tipo" data-tipo="fai">FAIRY</button>
 		</div>
 		<div class="tipo-separador">
 		</div>
