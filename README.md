@@ -17,8 +17,9 @@ Desenvolver autonomia, comunicação e resolução de problemas.
 ## 🚧 Status do projeto 
 
 Em desenvolvimento. 
-Atualmente, o projeto conta com a estrutura inicial da página, o cabeçalho estilizado, o logotipo e um campo de pesquisa na interface. 
-A lógica de pesquisa e as demais interações ainda serão desenvolvidas. Os arquivos js script.js e css filtro.css estão preparados para as próximas etapas. 
+Atualmente, o projeto conta com a estrutura inicial da página, o cabeçalho estilizado, o logotipo, um campo de pesquisa na interface, cards de pokemons e paginação
+A lógica de pesquisa, filtro, favoritos e a aba minha pokedex esta feita.
+Falta adicionar informações extras ao interagir com o card de cada pokemon.
 
 ## 🛠️ Tecnologias 
 
@@ -33,11 +34,15 @@ A lógica de pesquisa e as demais interações ainda serão desenvolvidas. Os ar
 Pokedex-PM3
 ├── css
 │ ├── filtro.css
-│ └── header.css
+│ ├── header.css
+│ └── cards.css
 ├── images
+│ ├── estrela.svg
+│ ├── estrelaAtivado.svg
 │ └── logo.svg
 ├── js
-│ └── script.js
+│ ├── main.js
+│ └── tipoStyle.js
 ├── index.html
 └── README.md
 ```
@@ -46,7 +51,7 @@ Pokedex-PM3
 
 Clone o repositório -> git clone https://github.com/felipegabriel0324-cmyk/Pokedex-PM3.git
 
- Abra a pasta Pokedex-PM3.
+Abra a pasta Pokedex-PM3.
  
 Abra o arquivo index.html em um navegador. 
 
@@ -59,17 +64,13 @@ Aqui -> https://www.canva.com/design/DAHXLsyB8q0/Oedu2zXAAu5-HJaveS2ANQ/edit
 
 ## 👥 Participantes
 
-Felipe Gabriel | https://github.com/felipegabriel0324-cmyk | Contribuição:Header
-
-Erick Mendes | |
-
-Matheus | |
+Felipe Gabriel | https://github.com/felipegabriel0324-cmyk | Contribuição: html, js e css
 
 ## 🧑‍🏫 Mentoria 
 
 Mentor Thierre Tries
 
-GitHub ou LinkedIn https://github.com/SRhartty 
+GitHub: https://github.com/SRhartty 
 
 A mentoria acompanha o processo de aprendizagem da equipe, apoiando a organização das atividades, esclarecendo dúvidas técnicas e orientando boas práticas de desenvolvimento. 
 
@@ -93,6 +94,6 @@ Cada integrante deve registrar suas alterações com mensagens de commit claras 
 
 As contribuições devem favorecer tanto a evolução da aplicação quanto o aprendizado coletivo. 
 
- Projeto desenvolvido para fins educacionais. 
+Projeto desenvolvido para fins educacionais. 
  
 Pokemons e seus elementos associados pertencem aos respectivos titulares.
