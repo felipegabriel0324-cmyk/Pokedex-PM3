@@ -1,19 +1,68 @@
-let minimo_buscar = 1;
-let maximo_buscar = 20;
+let multiplicador = 1;
 let estado_ATD = 0;
+let filtro = "all";
+let pesquisando = 0;
 const pokemons_favoritos = [];
 const pokemons_ATD = [];
 const pokedex_container = document.querySelector("#pokedex-container");
 const container_selecao = document.getElementById("selecao_script");
 const irParaDex = document.getElementById("irParaDex");
-const reset = document.getElementById("reset");
-
+const container_tipo = document.getElementById("tipo_script");
+const campo_busca = document.getElementById("campo-busca");
+const armazemPok = [];
+const correspondentes = [];
+function buscarTodos() {
+	const requisicoes = [];
+	for(let i = 1;i <= 140;i++) {
+		requisicoes.push(
+			fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+			.then(response => response.json())
+		);
+	}
+	Promise.all(requisicoes).then(pokemon => {
+		for(let i = 0;i < 140;i++) {
+			armazemPok.push({pok: pokemon[i].name, id: pokemon[i].id});
+		}
+	});
+	console.log(armazemPok);
+}
+campo_busca.addEventListener("keydown", function(evento) {
+	if(evento.key == "Enter") {
+		pesquisando = 1;
+		for(let i = 0;i < 140;i++) {
+			pokemon = campo_busca.value.toLowerCase();
+			if(pokemon == armazemPok[i].pok || armazemPok[i].pok.startsWith(pokemon)) {
+				correspondentes.push(armazemPok[i].id);
+			}
+		}
+		pokedex_container.replaceChildren();
+		atualizar(buscarPesquisa());
+		correspondentes.length = 0;
+	}else if(campo_busca.value) pesquisando = 0;
+});
+container_tipo.addEventListener("click", function(evento) {
+	if(!evento) return;
+	if(evento.target.dataset.tipo == undefined) return;
+	filtro = evento.target.dataset.tipo;
+	pokedex_container.replaceChildren();
+	if(estado_ATD){
+		atualizar(buscarATD());
+		console.log("de cima rodo");
+	}
+	else{
+		atualizar(buscar());
+		console.log("de baixo rodo");
+	}
+	console.log(filtro);
+});
 console.log(pokemons_ATD);
 function buscar() {
+	let x = multiplicador * 20;
+	let y = x - 19;
 	const requisicoes = [];
-	for(;minimo_buscar <= maximo_buscar;minimo_buscar++) {
+	for(;y <= x;y++) {
 		requisicoes.push(
-			fetch(`https://pokeapi.co/api/v2/pokemon/${minimo_buscar}`)
+			fetch(`https://pokeapi.co/api/v2/pokemon/${y}`)
 			.then(response => response.json())
 		);
 	}
@@ -38,9 +87,35 @@ function buscarATD() {
 	}
 	return requisicoes;
 }
+function buscarPesquisa() {
+	const requisicoes = [];
+	for(let i = 0;i < correspondentes.length;i++) {
+		requisicoes.push(
+			fetch(`https://pokeapi.co/api/v2/pokemon/${correspondentes[i]}`)
+			.then(response => response.json())
+		);
+	}
+	return requisicoes;
+}
 function atualizar(requisicoes) {
 	Promise.all(requisicoes).then(pokemon => {
 		for(let x = 0;x < pokemon.length;x++) {
+			let temTipo = false;
+			if(filtro == "favorites") {
+				for(let i = 0;i < localStorage.length;i++) {
+					let chave = localStorage.key(i);
+					let objt = JSON.parse(localStorage.getItem(chave));
+					if(objt.id == pokemon[x].id && objt.fav) temTipo = true;
+				}
+			} //filtro favorites = especial, diferente do filtro fornecido da api
+			for(let i = 0;i < pokemon[x].types.length;i++) {
+				if(pokemon[x].types[i].type.name == filtro) {
+					temTipo = true;
+				}
+			}
+			if(filtro != "all") {
+				if(!temTipo) continue;
+			}
 			const type = [];
 
 			const pokemonAtual = pokemon[x];
@@ -97,6 +172,7 @@ function atualizar(requisicoes) {
 			let estadoFavoritado = {fav:0, ATD:0, id:pokemon[x].id};
 			if(salvo) {
 				estadoFavoritado = JSON.parse(salvo);
+
 			}
 			if(estadoFavoritado.fav == 1) {
 				icon.src = "images/estrelaAtivado.svg";
@@ -162,12 +238,8 @@ function resgatarPokemons() {
 
 function gerenCards(evento) {
 	if(estado_ATD == 1) return;
-	let multiplicador = 1;
 	if(evento) multiplicador = evento.target.getAttribute("data-numero"); //jeito antigo de pegar a data do html, nao sabia
 	if(!multiplicador) return;
-	let base = 20;
-	maximo_buscar = base * multiplicador;
-	minimo_buscar = maximo_buscar - 19;
 	pokedex_container.replaceChildren();
 	atualizar(buscar());
 	console.log(`multiplicador:${multiplicador}`);
@@ -185,6 +257,6 @@ irParaDex.addEventListener("click", function() {
 		gerenCards();
 	}
 });
-
+buscarTodos();
 resgatarPokemons();
 atualizar(buscar());
