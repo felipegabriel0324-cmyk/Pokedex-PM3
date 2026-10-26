@@ -66,6 +66,8 @@ Aqui -> https://www.canva.com/design/DAHXLsyB8q0/Oedu2zXAAu5-HJaveS2ANQ/edit
 
 Felipe Gabriel | https://github.com/felipegabriel0324-cmyk | Contribuição: html, js e css
 
+Erick Mendes | https://github.com/ErickRmendes | Contribuição: Responsividade da pokedex
+
 ## 🧑‍🏫 Mentoria 
 
 Mentor Thierre Tries
