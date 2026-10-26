@@ -1,0 +1,209 @@
+@media (max-width: 1024px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .pokemon-card img {
+        max-width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .BarraSup {
+        position: relative;
+        min-height: 80px;
+        height: auto;
+        padding: 8px 12px;
+        box-sizing: border-box;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .espaco {
+        display: none;
+    }
+
+    .caixa-logoTitulo {
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .logo {
+        width: 45px;
+        height: 45px;
+        margin-top: 0;
+    }
+
+    .titulo h1 {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .barraPesquisa {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 240px;
+        min-width: 0;
+        height: 34px;
+        margin: 0;
+        padding: 0 10px;
+        box-sizing: border-box;
+        font-size: 12px;
+    }
+
+    .containerPesquisa {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .BarraInf {
+        padding: 0 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .BarraInf::before {
+        left: 10px;
+        right: 10px;
+    }
+
+    .botaoBarra {
+        flex: 1 1 0;
+        width: auto;
+        min-width: 0;
+        font-size: 12px;
+    }
+
+    .filtro-tipos {
+        padding: 12px 8px;
+        gap: 6px;
+    }
+
+    .filtro-tipo {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .listagem {
+        padding: 25px 0;
+    }
+
+    .listagem h2 {
+        font-size: 26px;
+    }
+
+    .pokemon-grid {
+        width: 92%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .pokemon-card {
+        min-width: 0;
+        padding: 8px;
+    }
+
+    .pokemon-card img {
+        width: 100%;
+        max-width: 120px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+    }
+
+    .pokemon-nome {
+        font-size: 16px;
+        overflow-wrap: anywhere;
+    }
+
+    .pokemon-types {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .pokemon-types span {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+
+    .pokemon-add {
+        width: 100%;
+        max-width: 200px;
+        padding: 8px 4px;
+        font-size: 12px;
+        box-sizing: border-box;
+    }
+
+    footer {
+        min-height: 100px;
+        height: auto;
+        padding: 15px 12px;
+        box-sizing: border-box;
+        gap: 10px;
+    }
+
+    footer h1 {
+        margin: 0;
+        font-size: 16px;
+    }
+
+    .github {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .BarraSup {
+        gap: 5px;
+        padding: 8px;
+    }
+
+    .logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .titulo h1 {
+        font-size: 13px;
+    }
+
+    .barraPesquisa {
+        font-size: 11px;
+        padding: 0 6px;
+    }
+
+    .pokemon-grid {
+        width: 94%;
+        gap: 8px;
+    }
+
+    .pokemon-card {
+        padding: 6px;
+    }
+
+    .pokemon-nome {
+        font-size: 14px;
+    }
+
+    .pokemon-types span {
+        padding: 4px 6px;
+        font-size: 10px;
+    }
+
+    .filtro-tipo {
+        padding: 5px 8px;
+        font-size: 10px;
+    }
+
+    footer h1 {
+        font-size: 13px;
+    }
+
+    .github {
+        font-size: 12px;
+    }
+}
